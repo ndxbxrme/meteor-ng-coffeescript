@@ -9,11 +9,5 @@ Template = {
     events: function(object){
       this.EVENT_EXPORTED = object["click .event"]()
     }
-  },
-  testTemplate2: {
-    helpers: function(object){
-      this.HELPER1_EXPORTED = object.helper1()
-      this.HELPER2_EXPORTED = object.helper2()
-    }
   }
 };
