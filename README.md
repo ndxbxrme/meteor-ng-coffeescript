@@ -1,3 +1,10 @@
+## meteor-ng-coffeescript
+
+A fork of [meteor-coffeescript](https://github.com/foxbenjaminfox/meteor-coffeescript) that plays nicely with `angular-meteor`.  
+Used by [generator-angular-meteor](https://github.com/ndxbxrme/generator-angular-meteor)
+
+`meteor add ndxbxrme:ng-coffeescript`
+
 # coffeescript
 
 [CoffeeScript](http://coffeescript.org/) is a little language that
@@ -8,12 +15,6 @@ equivalent JS, and there is no interpretation at runtime.
 CoffeeScript is supported on both the client and the server. Files
 ending with `.coffee`, `.litcoffee`, or `.coffee.md` are automatically
 compiled to JavaScript.
-
-This is a fork of the core Meteor `coffeescript` package. As the per the [Meteor wiki](https://github.com/meteor/meteor/wiki/Contributing-to-Meteor#adding-new-packages-to-meteor):
-
-> For historical reasons, some packages that really ought to be in Atmosphere are currently in core, like `less` and `coffeescript`.
-
-The goal of this fork is to fix this problem by moving the `coffeescript` package out of core, allowing the community to build on it without having to go through the Meteor release cycle.
 
 ### Unwrapped helpers and events
 

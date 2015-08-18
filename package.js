@@ -1,7 +1,8 @@
 Package.describe({
-  summary: "Javascript dialect with fewer braces and semicolons",
-  version: "1.0.3",
-  git: "https://github.com/foxbenjaminfox/meteor-coffeescript.git"
+  name: "ndxbxrme:ng-coffeescript",
+  summary: "A fork of meteor-coffeescript that plays better with angular-meteor",
+  version: "1.0.0",
+  git: "https://github.com/ndxbxrme/meteor-ng-coffeescript.git"
 });
 
 Package.registerBuildPlugin({

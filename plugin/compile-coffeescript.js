@@ -138,7 +138,7 @@ var addWrapper = function (source, sourceMap, filepath, wrapper) {
 
 var handler = function (compileStep, isLiterate, templateWrapper) {
   var source = compileStep.read().toString('utf8');
-  var outputFile = compileStep.inputPath + ".js";
+  var outputFile = compileStep.inputPath.replace(/\.coffee/,'.ng') + ".js";
 
   var options = {
     bare: true,
