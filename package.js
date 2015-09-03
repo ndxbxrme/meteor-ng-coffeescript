@@ -1,7 +1,7 @@
 Package.describe({
   name: "ndxbxrme:ng-coffeescript",
   summary: "A fork of meteor-coffeescript that plays better with angular-meteor",
-  version: "1.0.0",
+  version: "1.1.0",
   git: "https://github.com/ndxbxrme/meteor-ng-coffeescript.git"
 });
 
@@ -11,7 +11,7 @@ Package.registerBuildPlugin({
   sources: [
     'plugin/compile-coffeescript.js'
   ],
-  npmDependencies: {"coffee-script": "1.7.1", "source-map": "0.1.32"}
+  npmDependencies: {"coffee-script": "1.7.1", "source-map": "0.1.32", "ngmin": "0.4.0"}
 });
 
 Package.onTest(function (api) {

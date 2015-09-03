@@ -3,6 +3,7 @@ var path = Npm.require('path');
 var coffee = Npm.require('coffee-script');
 var _ = Npm.require('underscore');
 var sourcemap = Npm.require('source-map');
+var ngmin = Npm.require('ngmin');
 
 var stripExportedVars = function (source, exports) {
   if (!exports || _.isEmpty(exports))
@@ -166,6 +167,7 @@ var handler = function (compileStep, isLiterate, templateWrapper) {
   }
 
   var stripped = stripExportedVars(output.js, compileStep.declaredExports);
+  stripped = ngmin.annotate(stripped);
   var sourceWithMap;
 
   if (templateWrapper){
