@@ -149,7 +149,7 @@ var annotate = function (source, inputPath, outputPath) {
 
 var handler = function (compileStep, isLiterate, templateWrapper) {
   var source = compileStep.read().toString('utf8');
-  var outputFile = compileStep.inputPath.replace(/\.coffee/,'.ng') + ".js";
+  var outputFile = compileStep.inputPath.replace(/\.coffee/,'') + ".js";
 
   var options = {
     bare: true,
