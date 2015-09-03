@@ -1,7 +1,7 @@
 Package.describe({
   name: "ndxbxrme:ng-coffeescript",
   summary: "A fork of meteor-coffeescript that plays better with angular-meteor",
-  version: "1.2.0",
+  version: "1.2.1",
   git: "https://github.com/ndxbxrme/meteor-ng-coffeescript.git"
 });
 

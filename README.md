@@ -1,6 +1,7 @@
 ## meteor-ng-coffeescript
 
 A fork of [meteor-coffeescript](https://github.com/foxbenjaminfox/meteor-coffeescript) that plays nicely with `angular-meteor`.  
+Includes `ng-annotate`  
 Used by [generator-angular-meteor](https://github.com/ndxbxrme/generator-angular-meteor)
 
 `meteor add ndxbxrme:ng-coffeescript`
