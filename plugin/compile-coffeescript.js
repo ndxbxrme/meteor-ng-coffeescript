@@ -3,7 +3,7 @@ var path = Npm.require('path');
 var coffee = Npm.require('coffee-script');
 var _ = Npm.require('underscore');
 var sourcemap = Npm.require('source-map');
-var ngmin = Npm.require('ngmin');
+var ngAnnotate = Npm.require('ng-annotate');
 
 var stripExportedVars = function (source, exports) {
   if (!exports || _.isEmpty(exports))
@@ -137,6 +137,16 @@ var addWrapper = function (source, sourceMap, filepath, wrapper) {
   };
 }
 
+var annotate = function (source, inputPath, outputPath) {
+  var res = ngAnnotate(source, {
+    add:true, map: {inline: false, inFile: inputPath, sourceRoot: '/' + outputPath} 
+  });
+  return {
+    source: res.src,
+    sourceMap: res.map
+  };
+};
+
 var handler = function (compileStep, isLiterate, templateWrapper) {
   var source = compileStep.read().toString('utf8');
   var outputFile = compileStep.inputPath.replace(/\.coffee/,'.ng') + ".js";
@@ -167,7 +177,6 @@ var handler = function (compileStep, isLiterate, templateWrapper) {
   }
 
   var stripped = stripExportedVars(output.js, compileStep.declaredExports);
-  stripped = ngmin.annotate(stripped);
   var sourceWithMap;
 
   if (templateWrapper){
@@ -175,6 +184,10 @@ var handler = function (compileStep, isLiterate, templateWrapper) {
     sourceWithMap = addSharedHeader(sourceWithMap.source, sourceWithMap.sourceMap);
   } else {
     sourceWithMap = addSharedHeader(stripped, output.v3SourceMap);
+  }
+  
+  if (stripped && stripped.indexOf('angular')!==-1) {
+    sourceWithMap = annotate(sourceWithMap.source, compileStep.inputPath, outputFile); 
   }
 
   compileStep.addJavaScript({
